@@ -158,4 +158,5 @@ for _, r in df_map.iterrows():
         )
     ).add_to(cluster)
 
+
 st_folium(m, height=600, use_container_width=True)
