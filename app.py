@@ -3,6 +3,8 @@ import pandas as pd
 import folium
 from streamlit_folium import st_folium
 from folium.plugins import MarkerCluster
+import matplotlib.pyplot as plt
+
 
 # =====================
 # Page Config
@@ -15,7 +17,7 @@ st.set_page_config(
 # =====================
 # Load Data
 # =====================
-df = pd.read_csv("data_sekolah_valid_gis_updated.csv")
+df = pd.read_csv("data_sekolah.csv")
 
 # =====================
 # Normalisasi Bentuk Pendidikan
@@ -159,3 +161,28 @@ for _, r in df_map.iterrows():
     ).add_to(cluster)
 
 st_folium(m, height=600, use_container_width=True)
+
+
+# =====================
+# Pie Chart Komposisi Sekolah per Kecamatan
+# =====================
+st.subheader("Persentase Jumlah Sekolah per Kecamatan")
+
+rekap_pie = (
+    df.groupby("Nama Kecamatan")
+    .size()
+    .reset_index(name="Total Sekolah")
+)
+
+rekap_pie["Persentase"] = (rekap_pie["Total Sekolah"] / rekap_pie["Total Sekolah"].sum()) * 100
+
+fig, ax = plt.subplots(figsize=(10, 10))
+ax.pie(
+    rekap_pie["Total Sekolah"],
+    labels=rekap_pie["Nama Kecamatan"],
+    autopct="%1.1f%%",
+    startangle=90
+)
+ax.axis("equal")
+
+st.pyplot(fig)
