@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # Page Config
 # =====================
 st.set_page_config(
-    page_title="Pemetaan Sekolah Kabupaten Bandung",
+    page_title="Pemetaan SD, SMP, MI, MTs Kabupaten Bandung",
     layout="wide"
 )
 
@@ -186,4 +186,5 @@ ax.pie(
 ax.axis("equal")
 
 st.pyplot(fig)
+
 
