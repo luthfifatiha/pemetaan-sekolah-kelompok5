@@ -48,7 +48,7 @@ total_smp = (df["Bentuk Pendidikan"] == "SMP").sum()
 total_mi = (df["Bentuk Pendidikan"] == "MI").sum()
 total_mts = (df["Bentuk Pendidikan"] == "MTs").sum()
 
-st.title("Pemetaan Sekolah Kabupaten Bandung")
+st.title("Pemetaan SD, SMP, MI, MTs Kabupaten Bandung")
 
 col1, col2, col3, col4, col5, col6 = st.columns(6)
 col1.metric("Total Kecamatan", total_kecamatan)
@@ -186,5 +186,6 @@ ax.pie(
 ax.axis("equal")
 
 st.pyplot(fig)
+
 
 
