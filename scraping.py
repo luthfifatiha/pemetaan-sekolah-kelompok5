@@ -5,7 +5,7 @@ import time
 
 BASE_URL = "https://referensi.data.kemendikdasmen.go.id"
 
-CSV_FILE = "sekolah_lengkap.csv"
+CSV_FILE = "data_sekolah.csv"
 HEADER = [
     "Nama Kecamatan", "NPSN", "Nama Sekolah", "Alamat", "Desa/Kelurahan",
     "Kecamatan/Kota (LN)", "Kab.-Kota/Negara (LN)", "Propinsi/Luar Negeri (LN)",
@@ -109,3 +109,4 @@ for kec_name, kec_url in kecamatan_links:
         time.sleep(0.2)  # jangan spam server
 
 print("Selesai! CSV sudah dibuat:", CSV_FILE)
+
